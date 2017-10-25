@@ -1,4 +1,4 @@
-#inlcude <stdio.h>
+#include <stdio.h>
 #include <pthread.h>
 
 
@@ -26,31 +26,31 @@ int main()
     if (pthread_create (&thread_1, NULL, thr_print, NULL) )
     {
         printf("Blad przy tworeniu thread_1\n");
-        abort();
+        //abort();
     }
 
 
     if (pthread_create (&thread_2, NULL, thr2_print, NULL) )
     {
         printf("Blad przy tworeniu thread_2\n");
-        abort();
+        //abort();
     }
 
 
     if (pthread_join (thread_1, NULL) )
     {
         printf("Blad przy konczeniu thread_1\n");
-        exit();
+        //exit();
     }
 
 
     if (pthread_join (thread_2, NULL) )
     {
         printf("Blad przy konczeniu thread_2\n");
-        exit();
+        //exit();
     }
 
     printf("Watek glowny\n");
 
-    exit (0);
+    return 0;
 }
