@@ -2,7 +2,7 @@
 #include <pthread.h>
 
 
-void* thr_print( *arg )
+void* thr_print( void *arg )
 {
     printf("Watek nr 1\n");
 
@@ -10,7 +10,7 @@ void* thr_print( *arg )
 }
 
 
-void* thr2_print( *arg )
+void* thr2_print( void *arg )
 {
     printf("Watek nr 2\n");
 
@@ -26,6 +26,7 @@ int main()
     if (pthread_create (&thread_1, NULL, thr_print, NULL) )
     {
         printf("Blad przy tworeniu thread_1\n");
+	return 1;
         //abort();
     }
 
@@ -33,6 +34,7 @@ int main()
     if (pthread_create (&thread_2, NULL, thr2_print, NULL) )
     {
         printf("Blad przy tworeniu thread_2\n");
+	return 1;
         //abort();
     }
 
@@ -40,6 +42,7 @@ int main()
     if (pthread_join (thread_1, NULL) )
     {
         printf("Blad przy konczeniu thread_1\n");
+	return 1;
         //exit();
     }
 
@@ -47,6 +50,7 @@ int main()
     if (pthread_join (thread_2, NULL) )
     {
         printf("Blad przy konczeniu thread_2\n");
+	return 1;
         //exit();
     }
 
